@@ -1,0 +1,24 @@
+<body>
+
+    <header>
+        <div class="app-name" [routerLink]="['/dashboard']">Book Management App</div>
+        <div class="right-section">
+            <button class="action-button" (click)="login()" *ngIf="!this.userservice.isLoggedIn()">LogIn</button>
+            <div class="account-info" *ngIf="this.userservice.isLoggedIn()">
+                <div class="user-feature">
+                    <div class="user-detail">
+                        <span>Hii, {{this.userservice.getTokenUserInfo()?.name}}</span>
+                        <span>Token Available: {{token$}}</span>
+                    </div>
+                    <div class="user-function">
+                        <button class="action-button" (click)="addbook()">Add Book</button>
+                        <button class="action-button" (click)="mybooks()">My Books</button>
+                        <button class="action-button" (click)="myorders()">My Orders</button>
+                        <button class="action-button" (click)="logOut()">LogOut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</body>

@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<body>
+    <h2>Lent Book</h2>
+    <h5>{{responseMsg}}</h5>
+
+    <form class="form-container" [formGroup]="lentBookForm" novalidate>
+        <div class="form-group">
+            <h3><label for="title">Title:</label></h3>
+            <input type="text" id="title" name="title" formControlName="title" required>
+            <small *ngIf="title.touched && title.invalid">{{getTitleError()}}</small>
+        </div>
+        <div class="form-group">
+            <h3><label for="author">Author:</label></h3>
+            <input type="text" id="author" name="author" formControlName="author" required>
+            <small *ngIf="author.touched && author.invalid">{{getAuthorError()}}</small>
+        </div>
+        <div class="form-group">
+            <h3><label for="genre">Genre:</label></h3>
+            <input type="text" id="genre" name="genre" formControlName="genre" required>
+            <small *ngIf="genre.touched && genre.invalid">{{getGenreError()}}</small>
+        </div>
+        <div class="form-group">
+            <h3><label for="description">Description:</label></h3>
+            <input type="text" id="description" name="description" formControlName="description" maxlength>
+            <small *ngIf="description.invalid && description.touched">{{getDescriptionError()}}</small>
+        </div>
+    </form>
+
+    <button class="lent-button" [class.disabled]="this.lentBookForm.invalid" (click)="addBook()">Lent Book</button>
+
+</body>

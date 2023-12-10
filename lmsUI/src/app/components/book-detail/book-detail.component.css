@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.grid-container {
+    max-width: 400px; /* Set a maximum width for better readability */
+    margin: 0 auto; /* Center the container */
+}
+
+.grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-item h3 {
+    margin-right: 10px;
+}
+
+.borrow-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin: 20px auto;
+}
+
+small{
+    color: red;
+    font-size: large;
+}
+
+.button{
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.button.disabled{
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .grid-item {
+        flex-direction: column;
+    }
+
+    .grid-item h3 {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}

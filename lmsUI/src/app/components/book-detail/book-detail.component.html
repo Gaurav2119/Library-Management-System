@@ -1,0 +1,47 @@
+<app-nav></app-nav>
+<body>
+    <small>{{borrowResponse}}</small>
+    <div class="grid-container" *ngFor="let book of displaybook">
+        <div class="grid-item">
+            <h3>Title:</h3>
+            <p>{{book.title | titlecase}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Author:</h3>
+            <p>{{book.author | titlecase}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Genre:</h3>
+            <p>{{book.genre | titlecase}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Description:</h3>
+            <p>{{book.description | titlecase}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Lent by:</h3>
+            <p>{{book.lentbyusername | titlecase}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Rating:</h3>
+            <p>{{book.rating}}</p>
+        </div>
+        <div class="grid-item">
+            <h3>Rate Book:</h3>
+            <p>
+                <select [(ngModel)]="userRating" id="userRating" name="userRating" (change)="onRatingChange($event)">
+                    <option value="0" *ngIf="userRating == 0">Select Rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="button" (click)="submitRating(book)" [class.disabled]="!userRating">Submit Rating</button>
+                {{rateResponse}}
+            </p>
+        </div>
+    </div>
+
+    <button class="borrow-button" (click)="borrow()">Borrow Book</button>
+</body>

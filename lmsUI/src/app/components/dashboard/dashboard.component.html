@@ -1,0 +1,30 @@
+<app-nav></app-nav>
+<body>
+    <h5>{{responseMsg}}</h5>
+
+    <div class="container" *ngIf="books.length != 0">
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search..." [(ngModel)]="searchValue">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of filteredBooks" (click)="bookDetail(book.id)">
+                    <td data-label="Title">{{book.title | titlecase}}</td>
+                    <td data-label="Author">{{book.author | titlecase}}</td>
+                    <td data-label="Genre">{{book.genre | titlecase}}</td>
+                    <td data-label="Rating">{{book.rating}}</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>

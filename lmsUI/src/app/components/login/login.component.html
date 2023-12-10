@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <h5>{{loginRes}}</h5>
+        <form [formGroup] = "loginForm" (ngSubmit)="login()" novalidate>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" formControlName="username" required>
+                <small *ngIf="username.touched && username.invalid">{{getUsernameErrors()}}</small>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" formControlName="password" required>
+                <small *ngIf="password.touched && password.invalid">{{getPasswordErrors()}}</small>
+            </div>
+            <button type="submit" class="login-btn" [class.disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
+</body>

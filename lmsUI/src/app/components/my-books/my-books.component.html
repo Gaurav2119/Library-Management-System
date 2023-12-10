@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+<body>
+    <h2>Lented Books</h2>
+    <h5>{{responseMsg}}</h5>
+
+    <div class="container" *ngIf="books.length != 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Description</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books">
+                    <td data-label="Title">{{book.title | titlecase}}</td>
+                    <td data-label="Author">{{book.author | titlecase}}</td>
+                    <td data-label="Genre">{{book.genre | titlecase}}</td>
+                    <td data-label="Description">{{book.description| titlecase}}</td>
+                    <td data-label="Rating">{{book.rating}}</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>

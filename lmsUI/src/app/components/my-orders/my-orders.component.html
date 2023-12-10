@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<body>
+    <h2>Books Borrowed</h2>
+    <h5>{{responseMsg}}</h5>
+
+    <div class="container" *ngIf="order.length != 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Borrowed On</th>
+                    <th>Returned On</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of order">
+                    <td data-label="Title">{{book.bookName | titlecase}}</td>
+                    <td data-label="Author">{{book.bookAuthor | titlecase}}</td>
+                    <td data-label="Genre">{{book.borrowedOn| date:'dd-MMM-YYYY hh:mm a'}}</td>
+                    <td data-label="Description">{{book.is_Returned ? (book.returnedOn | date: 'dd-MMM-YYYY hh:mm a') : ""}}
+                    </td>
+
+                    <button class="return-button" (click)="returnBook(book)" [hidden]="book.is_Returned">Return</button>
+
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
