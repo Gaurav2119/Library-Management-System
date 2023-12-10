@@ -1,4 +1,4 @@
-To run the book buddy web app
+To run the Library Management System web app
 
 Step 1: Setup backend
 	-> navigate to package manager console and run 'update-database' command
